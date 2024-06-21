@@ -210,10 +210,10 @@ custom_entries_view.open = function(self, offset, entries)
   self.entries_win:open({
     relative = 'editor',
     style = 'minimal',
-    row = completion.row and completion.row or math.max(0, row),
-    col = completion.col and completion.col or math.max(0, col + completion.col_offset),
-    width = completion.width and completion.width or width,
-    height = completion.height and completion.height or height,
+    row = completion.row or math.max(0, row),
+    col = completion.col or math.max(0, col + completion.col_offset),
+    width = completion.width or width,
+    height = completion.height or height,
     border = completion.border,
     zindex = completion.zindex or 1001,
   })
