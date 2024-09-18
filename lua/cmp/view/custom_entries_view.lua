@@ -53,6 +53,13 @@ custom_entries_view.new = function()
     end)
   )
 
+  autocmd.subscribe(
+    'VimResized',
+    vim.schedule_wrap(function()
+      self:resized()
+    end)
+  )
+
   vim.api.nvim_set_decoration_provider(custom_entries_view.ns, {
     on_win = function(_, win, buf, top, bot)
       if win ~= self.entries_win.win or buf ~= self.entries_win:get_buffer() then

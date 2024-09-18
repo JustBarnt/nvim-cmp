@@ -154,6 +154,15 @@ view.open = function(self, ctx, sources)
   return #entries > 0
 end
 
+--Handle VimResized
+view.resized = function(self)
+  self:abort()
+
+  self.event:emit('vim_resized', {
+    window = self:new(),
+  })
+end
+
 ---Close menu
 view.close = function(self)
   if self:visible() then
